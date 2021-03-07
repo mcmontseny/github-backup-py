@@ -51,7 +51,7 @@ try:
     i = 1
     for repo in repos.json():
         subprocess.call(['git', 'clone', '--mirror', repo["ssh_url"]], cwd=path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        print(f'[OK] Nom: ({i}/{len(repos.json())}) - Autor: {repo["name"]} | {repo["owner"]["login"]} clonat correctament.')
+        print(f'[OK] ({i}/{len(repos.json())}) - Repositori: {repo["name"]} | Autor: {repo["owner"]["login"]} -- Repositori clonat correctament.')
         i += 1
 except subprocess.CalledProcessError as error:
     print(f'[ERROR] {error}')
