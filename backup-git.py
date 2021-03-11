@@ -50,6 +50,7 @@ print(f"Començant a descarregar els repositoris a la carpeta: {path}")
 try:
     i = 1
     for repo in repos.json():
+        print(f'[INFO] ({i}/{len(repos.json())}) - Descarregant repositori {repo["name"]}...')
         subprocess.call(['git', 'clone', '--mirror', repo["ssh_url"]], cwd=path, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         print(f'[OK] ({i}/{len(repos.json())}) - Repositori: {repo["name"]} | Autor: {repo["owner"]["login"]} -- Repositori clonat correctament.')
         i += 1
